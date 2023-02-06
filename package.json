@@ -4,9 +4,9 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "clean": "rimraf ./build && tsc",
+    "clean": "rimraf ./dist && tsc",
     "prestart": "pnpm run clean",
-    "start": "node ./build",
+    "start": "pnpm prestart && node ./dist",
     "watch": "nodemon"
   },
   "repository": {
