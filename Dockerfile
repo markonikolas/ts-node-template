@@ -2,7 +2,7 @@ FROM node:lts-alpine as base
 
 WORKDIR /app
 
-COPY ./src /app/
+COPY . .
 
 COPY package.json pnpm-lock.yaml ./
 
@@ -16,16 +16,14 @@ FROM base as dev
 
 ENV NODE_ENV=development
 
+VOLUME [ "./app" ]
+
 CMD ["pnpm", "run", "watch"]
 
 FROM base as prod
 
-RUN mkdir -p dist && \
-    chown 1000:1000 -R dist && \
-    chmod 755 -R dist
+RUN ["pnpm", "run", "build"]
 
 ENV NODE_ENV=production
-
-VOLUME [ "/app/dist" ]
 
 CMD ["pnpm", "start"]
