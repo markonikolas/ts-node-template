@@ -4,10 +4,9 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "clean": "rimraf ./dist && tsc",
-    "prestart": "pnpm run clean",
-    "start": "pnpm prestart && node ./dist",
-    "watch": "nodemon"
+    "build": "tsc",
+    "start": "node ./dist",
+    "watch": "nodemon -L"
   },
   "repository": {
     "type": "git",
