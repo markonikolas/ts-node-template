@@ -1,14 +1,20 @@
 FROM node:lts-alpine as base
 
-WORKDIR /app
+RUN apk add curl
 
-COPY . .
+RUN curl -f https://get.pnpm.io/v6.16.js | node - add --global pnpm
 
-COPY package.json pnpm-lock.yaml ./
+WORKDIR /usr/src/app
 
-RUN npm install -g pnpm
+COPY --chown=node:node pnpm-lock.yaml ./
 
-RUN pnpm install
+RUN pnpm fetch --prod
+
+RUN pnpm install -r --offline --prod
+
+COPY --chown=node:node . .
+
+USER node
 
 FROM base as dev
 
@@ -22,7 +28,7 @@ CMD ["pnpm", "run", "watch"]
 
 FROM base as prod
 
-VOLUME [ "/app/dist" ]
+VOLUME [ "./app/dist" ]
 
 RUN ["pnpm", "run", "build"]
 
