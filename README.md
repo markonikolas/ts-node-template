@@ -28,8 +28,10 @@ docker build -t <image-name> . --target=prod
 
 run the image
 
+make sure your APP\_(ENVIRONMENT)\_PORT matches ports
+
 ```bash
-docker run -it --name=<container-name> --mount type=bind,source="$(pwd)",target=/app <image-name> .
+docker run -it --name=<container-name> -p <INTERNAL_PORT>:<EXTERNAL_PORT> --mount type=bind,source="$(pwd)",target=/app <image-name> .
 ```
 
 we need bind mount to reload nodemon on save (to avoid rebuilding the image).
