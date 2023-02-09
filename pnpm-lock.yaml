@@ -2,10 +2,14 @@ lockfileVersion: 5.4
 
 specifiers:
   '@types/node': ^18.11.19
+  dotenv: ^16.0.3
   nodemon: ^2.0.20
   rimraf: ^4.1.2
   ts-node: ^10.9.1
   typescript: ^4.9.5
+
+dependencies:
+  dotenv: 16.0.3
 
 devDependencies:
   '@types/node': 18.11.19
@@ -148,6 +152,11 @@ packages:
     resolution: {integrity: sha512-58lmxKSA4BNyLz+HHMUzlOEpg09FV+ev6ZMe3vJihgdxzgcwZ8VoEEPmALCZG9LmqfVoNMMKpttIYTVG6uDY7A==}
     engines: {node: '>=0.3.1'}
     dev: true
+
+  /dotenv/16.0.3:
+    resolution: {integrity: sha512-7GO6HghkA5fYG9TYnNxi14/7K9f5occMlp3zXAuSxn7CKCxt9xbNWG7yF8hTCSUchlfWSe3uLmlPfigevRItzQ==}
+    engines: {node: '>=12'}
+    dev: false
 
   /fill-range/7.0.1:
     resolution: {integrity: sha512-qOo9F+dMUmC2Lcb4BbVvnKJxTPjCm+RRpe4gDuGrzkL7mEVl/djYSu2OdQ2Pa302N4oqkSg9ir6jaLWJ2USVpQ==}
