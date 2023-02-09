@@ -39,7 +39,3 @@ we need bind mount to reload nodemon on save (to avoid rebuilding the image).
 ## License
 
 This project is licensed under the [GNU GPL](LICENSE) License - see the [LICENSE](LICENSE) file for details
-
-## Acknowledgments
-
-- Inspiration for this project is [this](https://www.codewars.com/kata/587136ba2eefcb92a9000027) kata on codewars
