@@ -34,7 +34,7 @@ make sure your APP\_(ENVIRONMENT)\_PORT matches ports
 docker run -it --name=<container-name> -p <INTERNAL_PORT>:<EXTERNAL_PORT> --mount type=bind,source="$(pwd)",target=/app <image-name> .
 ```
 
-we need bind mount to reload nodemon on save (to avoid rebuilding the image).
+we need bind mount in **development** to have the ability to reload nodemon on save, in production it's not neccessary.
 
 ## License
 
