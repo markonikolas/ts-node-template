@@ -8,27 +8,29 @@ WORKDIR /usr/src/app
 
 COPY --chown=node:node pnpm-lock.yaml ./
 
-RUN pnpm fetch --prod
-
-RUN pnpm install -r --offline --prod
-
 COPY --chown=node:node . .
-
-USER node
 
 FROM base as dev
 
 ENV NODE_ENV=development
 
+RUN pnpm fetch
+
+RUN pnpm install -r --offline 
+
 EXPOSE ${APP_DEV_PORT}
 
-VOLUME [ "./app" ]
+USER node
 
 CMD ["pnpm", "run", "watch"]
 
 FROM base as prod
 
-VOLUME [ "./app/dist" ]
+RUN pnpm fetch --prod
+
+RUN pnpm install -r --prod
+
+USER node
 
 RUN ["pnpm", "run", "build"]
 
