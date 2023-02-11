@@ -10,4 +10,4 @@ const PORT = NODE_ENV === 'development' ? APP_DEVELOPMENT_PORT : APP_PRODUCTION_
 http.createServer((req, res) => {
     res.write('Hello World!')
     res.end();
-}).listen(Number(PORT), '0.0.0.0', () => console.log(`Running on ${PORT}`));
+}).listen(Number(PORT), '0.0.0.0', () => console.log(`Running on localhost ${PORT} in ${NODE_ENV} environment`));
