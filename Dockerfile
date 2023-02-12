@@ -23,19 +23,3 @@ EXPOSE ${APP_DEV_PORT}
 USER node
 
 CMD ["pnpm", "run", "watch"]
-
-FROM base as prod
-
-RUN pnpm fetch --prod
-
-RUN pnpm install -r --prod
-
-USER node
-
-RUN ["pnpm", "run", "build"]
-
-ENV NODE_ENV=production
-
-EXPOSE ${APP_PROD_PORT}
-
-CMD ["pnpm", "start"]
