@@ -14,6 +14,8 @@ FROM base as dev
 
 ENV NODE_ENV=development
 
+VOLUME [ "/usr/src/app/node_modules" ]
+
 RUN pnpm fetch
 
 RUN pnpm install -r --offline 
